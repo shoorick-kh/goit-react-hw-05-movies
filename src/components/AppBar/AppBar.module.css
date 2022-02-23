@@ -1,0 +1,17 @@
+.navi {
+  padding: 15px;
+  border-bottom: 1px solid black;
+}
+
+.link {
+  text-decoration: none;
+  padding: 10px;
+  display: inline-block;
+  color: black;
+  font-weight: 600;
+}
+
+.activeLink {
+  composes: link;
+  color: crimson;
+}

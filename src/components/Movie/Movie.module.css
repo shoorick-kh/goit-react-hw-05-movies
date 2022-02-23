@@ -1,0 +1,14 @@
+.container {
+  padding: 10px;
+  display: flex;
+}
+
+.image {
+  max-width: 600px;
+  height: auto;
+}
+
+.movieInfo {
+  padding: 10px;
+  padding-left: 20px;
+}
