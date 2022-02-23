@@ -22,6 +22,10 @@ export default function Cast({ movieId }) {
       });
   }, [movieId]);
 
+  if (status === 'rejected') {
+    return alert(error);
+  }
+
   return (
     <>
       {status === 'pending' && <Loader />}

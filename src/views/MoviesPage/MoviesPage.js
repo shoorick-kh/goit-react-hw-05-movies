@@ -31,6 +31,10 @@ export default function MoviesPage() {
       });
   }, [movieQuery]);
 
+  if (status === 'rejected') {
+    return alert(error);
+  }
+
   return (
     <>
       <Searchbar onSubmitForm={onSubmitForm} />

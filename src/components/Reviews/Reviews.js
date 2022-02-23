@@ -22,6 +22,10 @@ export default function Reviews({ movieId }) {
       });
   }, [movieId]);
 
+  if (status === 'rejected') {
+    return alert(error);
+  }
+
   if (reviews.length === 0) {
     return <h3>We don't have any reviews for this movie.</h3>;
   }

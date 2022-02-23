@@ -39,6 +39,10 @@ export default function MovieDetailsPage() {
       });
   }, [movieId]);
 
+  if (status === 'rejected') {
+    return alert(error);
+  }
+
   return (
     <>
       {status === 'pending' && <Loader />}
