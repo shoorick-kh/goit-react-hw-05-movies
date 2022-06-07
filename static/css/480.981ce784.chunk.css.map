@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/480.981ce784.chunk.css","mappings":"AAAA,sBAGE,UAAY,CADZ,oBAAqB,CAErB,eAAgB,CAHhB,oBAIF","sources":["views/HomePage/HomePage.module.css"],"sourcesContent":[".link {\n  text-decoration: none;\n  display: inline-block;\n  color: black;\n  font-weight: 600;\n}\n"],"names":[],"sourceRoot":""}
