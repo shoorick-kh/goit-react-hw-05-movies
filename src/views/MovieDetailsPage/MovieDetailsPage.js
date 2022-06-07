@@ -3,7 +3,6 @@ import {
   NavLink,
   Route,
   Routes,
-  useLocation,
   useNavigate,
   useParams,
 } from 'react-router-dom';
@@ -11,8 +10,12 @@ import s from './MovieDetailsPage.module.css';
 import Loader from 'components/Loader/Loader';
 import Movie from 'components/Movie/Movie';
 import { getMovieDetails } from 'services/apiService';
-import Cast from 'components/Cast/Cast';
-import Reviews from 'components/Reviews/Reviews';
+// import Cast from 'components/Cast/Cast';
+// import Reviews from 'components/Reviews/Reviews';
+import { lazy, Suspense } from 'react/cjs/react.production.min';
+
+const Cast = lazy(() => import('components/Cast/Cast'));
+const Reviews = lazy(() => import('components/Reviews/Reviews'));
 
 export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
@@ -20,10 +23,11 @@ export default function MovieDetailsPage() {
   const [error, setError] = useState();
   const { movieId } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
+
+  // console.log(location?.state?.from);
 
   function handleGoBack() {
-    navigate(location?.state?.from ?? '/');
+    navigate('/movies');
   }
 
   useEffect(() => {
@@ -70,10 +74,12 @@ export default function MovieDetailsPage() {
           </ul>
         </>
       )}
-      <Routes>
-        <Route path="cast" element={<Cast movieId={movieId} />} />
-        <Route path="reviews" element={<Reviews movieId={movieId} />} />
-      </Routes>
+      <Suspense fallback={<h3>Loading...</h3>}>
+        <Routes>
+          <Route path="cast" element={<Cast movieId={movieId} />} />
+          <Route path="reviews" element={<Reviews movieId={movieId} />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }
