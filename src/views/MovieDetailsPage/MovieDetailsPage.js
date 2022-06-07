@@ -10,8 +10,6 @@ import s from './MovieDetailsPage.module.css';
 import Loader from 'components/Loader/Loader';
 import Movie from 'components/Movie/Movie';
 import { getMovieDetails } from 'services/apiService';
-// import Cast from 'components/Cast/Cast';
-// import Reviews from 'components/Reviews/Reviews';
 import { lazy, Suspense } from 'react/cjs/react.production.min';
 
 const Cast = lazy(() => import('components/Cast/Cast'));
@@ -24,7 +22,7 @@ export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const navigate = useNavigate();
 
-  // console.log(location?.state?.from);
+  // console.log(location?.state?.from ?? /movies);
 
   function handleGoBack() {
     navigate('/movies');
@@ -74,7 +72,7 @@ export default function MovieDetailsPage() {
           </ul>
         </>
       )}
-      <Suspense fallback={<h3>Loading...</h3>}>
+      <Suspense>
         <Routes>
           <Route path="cast" element={<Cast movieId={movieId} />} />
           <Route path="reviews" element={<Reviews movieId={movieId} />} />
