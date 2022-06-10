@@ -12,8 +12,12 @@ import Movie from 'components/Movie/Movie';
 import { getMovieDetails } from 'services/apiService';
 import { lazy, Suspense } from 'react/cjs/react.production.min';
 
-const Cast = lazy(() => import('components/Cast/Cast'));
-const Reviews = lazy(() => import('components/Reviews/Reviews'));
+const Cast = lazy(() =>
+  import('components/Cast/Cast' /* webpackChunkName: "Cast"*/)
+);
+const Reviews = lazy(() =>
+  import('components/Reviews/Reviews' /* webpackChunkName: "Reviews"*/)
+);
 
 export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
@@ -72,7 +76,7 @@ export default function MovieDetailsPage() {
           </ul>
         </>
       )}
-      <Suspense>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="cast" element={<Cast movieId={movieId} />} />
           <Route path="reviews" element={<Reviews movieId={movieId} />} />
