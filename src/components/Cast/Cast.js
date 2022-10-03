@@ -26,6 +26,10 @@ export default function Cast({ movieId }) {
     return alert(error);
   }
 
+  if (cast.length === 0) {
+    return <h3>We don't have any casts for this movie.</h3>;
+  }
+
   return (
     <>
       {status === 'pending' && <Loader />}

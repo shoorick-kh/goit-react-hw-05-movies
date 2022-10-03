@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Searchbar from '../../components/SearchBar/SearchBar';
 import { getMovieByQuery } from 'services/apiService';
 import Loader from 'components/Loader/Loader';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
@@ -44,9 +44,9 @@ export default function MoviesPage() {
           <ul>
             {movies.map(movie => (
               <li key={movie.id}>
-                <NavLink className={s.link} to={`/movies/${movie.id}`}>
+                <Link className={s.link} to={`/movies/${movie.id}`}>
                   {movie.title}
-                </NavLink>
+                </Link>
               </li>
             ))}
           </ul>

@@ -5,6 +5,7 @@ import {
   Routes,
   useNavigate,
   useParams,
+  useLocation,
 } from 'react-router-dom';
 import s from './MovieDetailsPage.module.css';
 import Loader from 'components/Loader/Loader';
@@ -25,11 +26,12 @@ export default function MovieDetailsPage() {
   const [error, setError] = useState();
   const { movieId } = useParams();
   const navigate = useNavigate();
-
-  // console.log(location?.state?.from ?? /movies);
+  const location = useLocation();
 
   function handleGoBack() {
-    navigate('/movies');
+    navigate('/');
+    // navigate(location?.state?.from ?? '/movies');
+    console.log(location);
   }
 
   useEffect(() => {
