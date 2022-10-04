@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import {
   NavLink,
   Route,
@@ -6,6 +7,7 @@ import {
   useNavigate,
   useParams,
   useLocation,
+  Outlet,
 } from 'react-router-dom';
 import s from './MovieDetailsPage.module.css';
 import Loader from 'components/Loader/Loader';
@@ -25,13 +27,13 @@ export default function MovieDetailsPage() {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState();
   const { movieId } = useParams();
+
   const navigate = useNavigate();
   const location = useLocation();
 
   function handleGoBack() {
-    navigate('/');
-    // navigate(location?.state?.from ?? '/movies');
-    console.log(location);
+    navigate(location.state?.from ?? '/');
+    // console.log(location);
   }
 
   useEffect(() => {
@@ -63,6 +65,7 @@ export default function MovieDetailsPage() {
           >
             Back
           </button>
+          {/* <NavLink to={location.state?.from ?? '/'}>Back</NavLink> */}
           <Movie movie={movie} />
           <ul className={s.list}>
             <li className={s.item}>
@@ -84,6 +87,7 @@ export default function MovieDetailsPage() {
           <Route path="reviews" element={<Reviews movieId={movieId} />} />
         </Routes>
       </Suspense>
+      <Outlet />
     </>
   );
 }

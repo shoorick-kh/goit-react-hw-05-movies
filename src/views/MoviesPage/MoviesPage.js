@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Searchbar from '../../components/SearchBar/SearchBar';
 import { getMovieByQuery } from 'services/apiService';
 import Loader from 'components/Loader/Loader';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
@@ -11,8 +11,11 @@ export default function MoviesPage() {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState();
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const onSubmitForm = query => {
     setMovieQuery(query);
+    setSearchParams({ query: query.trim() });
   };
 
   useEffect(() => {

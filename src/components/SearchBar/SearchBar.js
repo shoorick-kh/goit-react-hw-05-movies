@@ -2,9 +2,13 @@ import PropTypes from 'prop-types';
 import s from './SearchBar.module.css';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Searchbar({ onSubmitForm }) {
   const [query, setQuery] = useState('');
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleFilmChange = evt => {
     setQuery(evt.currentTarget.value.toLowerCase());
@@ -18,6 +22,8 @@ export default function Searchbar({ onSubmitForm }) {
       return;
     }
     onSubmitForm(query);
+    navigate({ ...location, search: `query=${query}` });
+    // console.log(location.search);
     setQuery('');
   };
 
