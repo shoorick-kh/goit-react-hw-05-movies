@@ -2,28 +2,38 @@ import { useEffect, useState } from 'react';
 import Searchbar from '../../components/SearchBar/SearchBar';
 import { getMovieByQuery } from 'services/apiService';
 import Loader from 'components/Loader/Loader';
-import { Link, useSearchParams } from 'react-router-dom';
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom';
 import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
-  const [movieQuery, setMovieQuery] = useState('');
+  // const [movieQuery, setMovieQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState();
+  const [searchParams] = useSearchParams();
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const searchQuery = searchParams.get('query');
+  // console.log(searchQuery);
 
   const onSubmitForm = query => {
-    setMovieQuery(query);
-    setSearchParams({ query: query.trim() });
+    // setMovieQuery(query);
+    navigate({ ...location, search: `query=${query}` });
   };
 
   useEffect(() => {
-    if (movieQuery === '') {
+    if (!searchQuery) {
       return;
     }
     setStatus('pending');
-    getMovieByQuery(movieQuery)
+    getMovieByQuery(searchQuery)
       .then(films => {
         setMovies(films.results);
         setStatus('resolved');
@@ -32,7 +42,7 @@ export default function MoviesPage() {
         setError(error);
         setStatus('rejected');
       });
-  }, [movieQuery]);
+  }, [searchQuery]);
 
   if (status === 'rejected') {
     return alert(error);
@@ -47,7 +57,11 @@ export default function MoviesPage() {
           <ul>
             {movies.map(movie => (
               <li key={movie.id}>
-                <Link className={s.link} to={`/movies/${movie.id}`}>
+                <Link
+                  className={s.link}
+                  to={`/movies/${movie.id}`}
+                  state={{ from: location }}
+                >
                   {movie.title}
                 </Link>
               </li>

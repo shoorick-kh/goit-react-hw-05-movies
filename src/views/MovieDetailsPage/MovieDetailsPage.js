@@ -33,7 +33,6 @@ export default function MovieDetailsPage() {
 
   function handleGoBack() {
     navigate(location.state?.from ?? '/');
-    // console.log(location);
   }
 
   useEffect(() => {
@@ -65,7 +64,6 @@ export default function MovieDetailsPage() {
           >
             Back
           </button>
-          {/* <NavLink to={location.state?.from ?? '/'}>Back</NavLink> */}
           <Movie movie={movie} />
           <ul className={s.list}>
             <li className={s.item}>

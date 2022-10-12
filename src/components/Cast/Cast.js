@@ -26,7 +26,7 @@ export default function Cast({ movieId }) {
     return alert(error);
   }
 
-  if (cast.length === 0) {
+  if (!cast) {
     return <h3>We don't have any casts for this movie.</h3>;
   }
 
