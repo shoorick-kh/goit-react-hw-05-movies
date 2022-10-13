@@ -67,12 +67,20 @@ export default function MovieDetailsPage() {
           <Movie movie={movie} />
           <ul className={s.list}>
             <li className={s.item}>
-              <NavLink className={s.link} to="cast">
+              <NavLink
+                className={s.link}
+                to="cast"
+                state={{ from: location.state.from }}
+              >
                 Cast
               </NavLink>
             </li>
             <li className={s.item}>
-              <NavLink className={s.link} to="reviews">
+              <NavLink
+                className={s.link}
+                to="reviews"
+                state={{ from: location.state.from }}
+              >
                 Reviews
               </NavLink>
             </li>

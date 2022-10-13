@@ -5,7 +5,7 @@ import Loader from 'components/Loader/Loader';
 // import s from './Cast.module.css';
 
 export default function Cast({ movieId }) {
-  const [cast, setCast] = useState(null);
+  const [cast, setCast] = useState([]);
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState();
 
@@ -26,7 +26,7 @@ export default function Cast({ movieId }) {
     return alert(error);
   }
 
-  if (!cast) {
+  if (cast.length === 0) {
     return <h3>We don't have any casts for this movie.</h3>;
   }
 
