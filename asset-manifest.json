@@ -1,29 +1,29 @@
 {
   "files": {
     "main.css": "/static/css/main.4bc1f651.css",
-    "main.js": "/static/js/main.f39bc372.js",
+    "main.js": "/static/js/main.3d9dc600.js",
     "HomePage.css": "/static/css/HomePage.b426cbf1.chunk.css",
     "HomePage.js": "/static/js/HomePage.25c4dc6d.chunk.js",
     "MoviePage.css": "/static/css/MoviePage.30801b83.chunk.css",
     "MoviePage.js": "/static/js/MoviePage.63dba486.chunk.js",
     "MovieDetailsPage.css": "/static/css/MovieDetailsPage.db7da697.chunk.css",
-    "MovieDetailsPage.js": "/static/js/MovieDetailsPage.615381d6.chunk.js",
-    "Cast.js": "/static/js/Cast.be0c9c57.chunk.js",
+    "MovieDetailsPage.js": "/static/js/MovieDetailsPage.d73db5a0.chunk.js",
+    "Cast.js": "/static/js/Cast.5495b134.chunk.js",
     "Reviews.js": "/static/js/Reviews.eb7c35a3.chunk.js",
     "index.html": "/index.html",
     "main.4bc1f651.css.map": "/static/css/main.4bc1f651.css.map",
-    "main.f39bc372.js.map": "/static/js/main.f39bc372.js.map",
+    "main.3d9dc600.js.map": "/static/js/main.3d9dc600.js.map",
     "HomePage.b426cbf1.chunk.css.map": "/static/css/HomePage.b426cbf1.chunk.css.map",
     "HomePage.25c4dc6d.chunk.js.map": "/static/js/HomePage.25c4dc6d.chunk.js.map",
     "MoviePage.30801b83.chunk.css.map": "/static/css/MoviePage.30801b83.chunk.css.map",
     "MoviePage.63dba486.chunk.js.map": "/static/js/MoviePage.63dba486.chunk.js.map",
     "MovieDetailsPage.db7da697.chunk.css.map": "/static/css/MovieDetailsPage.db7da697.chunk.css.map",
-    "MovieDetailsPage.615381d6.chunk.js.map": "/static/js/MovieDetailsPage.615381d6.chunk.js.map",
-    "Cast.be0c9c57.chunk.js.map": "/static/js/Cast.be0c9c57.chunk.js.map",
+    "MovieDetailsPage.d73db5a0.chunk.js.map": "/static/js/MovieDetailsPage.d73db5a0.chunk.js.map",
+    "Cast.5495b134.chunk.js.map": "/static/js/Cast.5495b134.chunk.js.map",
     "Reviews.eb7c35a3.chunk.js.map": "/static/js/Reviews.eb7c35a3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4bc1f651.css",
-    "static/js/main.f39bc372.js"
+    "static/js/main.3d9dc600.js"
   ]
 }
